@@ -1,24 +1,21 @@
 var SingletonStatic =  (function() {
-	var  Singleton={},
-			instance;
+	var  Singleton={}, //singleton object for returning
+			instance; // singleton instance
 
-	function SingletonStatic() {}; //constructor for our Singleton 
+    //constructor for our Singleton 
+	function SingletonClass() {}; 
 
+	// function for returning singleton object
 	Singleton.getInstance = function(){
-		if (instance) {
-			return instance;
-		} else{
-			instance = new SingletonStatic();
-			return instance;
+
+		if (!instance) {
+			instance = new SingletonClass();
 		};
+		return instance;
 	}
 	return Singleton;
 
-
 })();
  
-
-
-
 
 console.log( SingletonStatic.getInstance() === SingletonStatic.getInstance() );
