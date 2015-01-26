@@ -1,10 +1,24 @@
-function Singleton(){
-	
-	var instance;
+var SingletonStatic =  (function() {
+	var  Singleton={},
+			instance;
+
+	function SingletonStatic() {}; //constructor for our Singleton 
+
+	Singleton.getInstance = function(){
+		if (instance) {
+			return instance;
+		} else{
+			instance = new SingletonStatic();
+			return instance;
+		};
+	}
+	return Singleton;
 
 
-}
+})();
+ 
 
-var x = new Singleton()
-var y = new Singleton();
-console.log(x === y)
+
+
+
+console.log( SingletonStatic.getInstance() === SingletonStatic.getInstance() );
